@@ -13,3 +13,29 @@ status and the GitHub issue comments.
   `tsa46_full`, 8,697,740.3453 ha gross.
 - Recorded the materialized public-data manifest for the TSA, SiteProd, and
   VRI 2025 sources.
+
+## 2026-10-23
+
+- Completed the public-data and TSR provenance. The AOI is the current dissolved
+  TSA 46 feature (8,697,740.3453 ha gross). The TSR registry has no TSA 46
+  cycle, so the built-in `femic tsr fetch` and `extract` functions were run on
+  the predecessor TSAs 19, 21, 33, and 37: 77 of 78 PDFs cached and extracted,
+  6,189 candidate facts. The adopted AAC is 803,000 m3/yr (B.C. Reg. 328/2016,
+  s. 5) and the derived THLB target is 268,970 ha (North Coast 145,808 ha +
+  Mid Coast 123,162 ha).
+- Ran the FEMIC upstream pipeline for TSA 46: status ok, 2,824.8 s, 21 AUs, 85
+  curves, 171,825 fragments. The run manifest is
+  `runtime/logs/run_manifest-tsa46_full_20261023.json`.
+- Built and validated the ws4 matrix: 171,825 blocks, 2,375,677.18 ha of block
+  area. Calibrated the THLB to 268,970.00 ha (factor
+  1.1407167870336385, 9,374 saturated rows).
+- Ran the ten-decade AAC benchmark: all ten targets met at
+  8,030,000-8,031,000 m3 per decade, objective 0.0, 2,792 blocks scheduled.
+- Served the calibrated model on loopback: `/health` returns `{"status":"ok"}`.
+- `python scripts/dashboard.py` is green.
+- Deviations: the legacy pipeline needed the `plots/` directory, a
+  `config/tipsy/tsa46.yaml` case file, and the materialized `siteprod.tif` and
+  `misc.thlb.tif` rasters. The checkpoint is
+  `data/vri_vclr1p_checkpoint8.feather`, not the TSA 48 `ria_` name.
+
+- Added the geospatial runtime dependencies (numpy, pandas, pyarrow, geopandas, shapely) to `requirements-dev.txt` so CI can collect the model tests.
