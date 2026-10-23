@@ -1,0 +1,17 @@
+{
+  "bounds_epsg3005": [
+    634372.0262,
+    684898.8007,
+    1029161.5356,
+    1222796.5006
+  ],
+  "crs": "EPSG:3005",
+  "features": 1,
+  "gross_area_ha": 8697740.3453,
+  "out": "data/source/aoi/tsa46_full.gpkg",
+  "out_layer": "tsa46_full",
+  "source": "/srv/shared-data/gep/ws4/femic/external/femic-public-data/data/bc/tsa/FADM_TSA.gdb",
+  "source_layer": "WHSE_ADMIN_BOUNDARIES_FADM_TSA",
+  "tsa_name": "GBR North TSA",
+  "tsa_number": "46"
+}

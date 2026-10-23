@@ -1,0 +1,50 @@
+Web UI
+======
+
+The ws4 web UI serves the compiled TSA 46 dataset and its runs. It is
+read-only except for the optional run and agent controls. It binds loopback by
+default and has no authentication.
+
+Launch
+------
+
+The calibrated model is served by:
+
+.. code-block:: bash
+
+   ./serve_tsa46_calibrated.sh
+
+The script expands to:
+
+.. code-block:: bash
+
+   python -m ws4.cli serve \
+     --dataset runtime/tsa46_full/matrix \
+     --runs runtime/tsa46_full/runs \
+     --geometry runtime/tsa46_full/fragments.geojson \
+     --land-base runtime/tsa46_full/land_base.geojson \
+     --targets config/targets.tsa46_full.yaml \
+     --crs EPSG:3005 \
+     --allow-runs \
+     --allow-agent \
+     --port 8017
+
+``PORT=...`` overrides the default. The geometry is EPSG:3005; pass
+``--crs EPSG:3005`` so MapLibre can project it to WGS84. The land base is the
+AOI polygon drawn under the blocks, so non-forest gaps read as land rather than
+as missing map data.
+
+The block layer still renders if the OpenStreetMap basemap tiles are
+unavailable. If MapLibre cannot create a WebGL context, switch **Map engine** to
+**SVG (fallback)**.
+
+Checks
+------
+
+- ``/health`` returns ``{"status":"ok"}``.
+- The map shows the full TSA 46 AOI.
+- The run list contains ``baseline`` and any benchmark runs.
+- The target table shows ten decade targets and their realized values.
+
+Do not use ``--allow-remote`` on an untrusted network. Put the service behind a
+trusted proxy if it must be reachable from another host.

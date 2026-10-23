@@ -1,0 +1,45 @@
+schema_version: 1
+tsa:
+  tsa_id: tsa_46
+  tsa_code: '46'
+  tsa_name: Great Bear Rainforest North
+canonical_summary:
+  candidate_fact_count: 0
+  document_count: 0
+  fact_family_counts:
+    au_definition_candidate: 0
+    source_layer_candidate: 0
+    thlb_reference: 0
+    tipsy_input_candidate: 0
+  candidate_facts_path: metadata/tsr/tsa_candidate_facts.json
+  documents_path: metadata/tsr/tsa_documents.json
+  registry_path: metadata/tsr/tsa_registry.json
+adopted:
+  source_layers: []
+  au_definitions: []
+  thlb_references:
+    - value: 803000
+      unit: m3/yr
+      label: GBR North TSA allowable annual cut
+      provenance_id: "BC Reg 328/2016 s.5"
+      notes: "AAC for Crown land in the GBR North TSA, effective 2017-01-01."
+    - value: 145808
+      unit: ha
+      label: former North Coast TSA current THLB
+      provenance_id: "TSA_21/TSR_2007/rationale#page=21"
+      notes: "Current THLB; the long-term THLB in the same table is 137,970 ha."
+    - value: 123162
+      unit: ha
+      label: former Mid Coast TSA current effective THLB
+      provenance_id: "TSA_19/TSR_2011/rationale#page=5"
+      notes: "Current effective THLB; spatial THLB 135,343 ha and long-term 125,728 ha."
+    - value: 268970
+      unit: ha
+      label: derived GBR North THLB target
+      provenance_id: "derived from TSA 21 + TSA 19 current THLB"
+      notes: "Sum of the two predecessor current THLBs. TSA 46 is the union of the former North Coast and Mid Coast boundaries (symmetric difference 5,268.5 ha, 0.06%). This is a predecessor-value derivation, not a reviewed GBR netdown."
+  tipsy_inputs: []
+  notes:
+    - "The GBR North TSA has no dedicated provincial TSR cycle; the current AAC comes from B.C. Reg. 328/2016."
+    - "The THLB target is provisional. Replace it with a reviewed GBR land-base netdown when one is available."
+    - "THLB provenance is from the predecessor TSR packages fetched with `femic tsr fetch` and extracted with `femic tsr extract`."
