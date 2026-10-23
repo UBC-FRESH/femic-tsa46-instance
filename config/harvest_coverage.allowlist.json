@@ -1,0 +1,16 @@
+{
+  "aus": [
+    {
+      "au": "4601004",
+      "reason": "Not selected by the strict volume-only AAC benchmark; the aac_benchmark_coverage run harvests this AU."
+    },
+    {
+      "au": "4602003",
+      "reason": "Not selected by the strict volume-only AAC benchmark; the aac_benchmark_coverage run harvests this AU."
+    },
+    {
+      "au": "4601005",
+      "reason": "Not selected by the strict volume-only AAC benchmark; the aac_benchmark_coverage run harvests this AU."
+    }
+  ]
+}

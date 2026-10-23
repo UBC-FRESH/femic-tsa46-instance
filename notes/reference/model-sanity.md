@@ -52,7 +52,24 @@ as a known limitation, not a build failure. A follow-up should either schedule
 a minimum share of these AUs or document why they are economically or
 operationally excluded.
 
+## Coverage run
+
+`runtime/tsa46_full/runs/aac_benchmark_coverage/` is a coverage diagnostic, not
+the benchmark of record. It starts from the strict benchmark and adds one
+harvest event for each of the three AUs above, then re-optimizes.
+
+- All three AUs are covered: 4601004 (41.1 ha), 4602003 (128.8 ha), 4601005
+  (15.3 ha).
+- Nine decades meet the strict band.
+- Decade 4 is 371 m3 above the upper bound and decade 10 is 7.7 m3 above.
+- The objective is 378.63; the strict `aac_benchmark` remains 10/10 met.
+
+The small overage is a real trade-off, not a reason to widen the band. The
+strict benchmark stays the benchmark of record; the coverage run answers the
+AU-coverage question separately.
+
 ## Status
 
-Pass with a recorded limitation. The model meets the AAC target; one small
-managed-area signal is unexplained.
+Pass with a recorded limitation. The compiled runtime signal is complete. The
+strict benchmark leaves three small AUs unselected; the coverage run selects
+them and records the 371 m3 decade-4 overage.
