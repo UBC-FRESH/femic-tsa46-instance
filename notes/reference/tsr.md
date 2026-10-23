@@ -31,13 +31,25 @@ python -m femic tsr fetch --tsa 19 --tsa 21 --tsa 33 --tsa 37
 python -m femic tsr extract --tsa 19 --tsa 21 --tsa 33 --tsa 37
 ```
 
-The corpus is cached under `~/.femic/tsr/` and is not committed.
+Result: 77 of 78 selected PDFs were cached and extracted (one fetch failure),
+producing 6,189 candidate facts. The corpus is cached under `~/.femic/tsr/` and
+is not committed.
 
-## TSR facts used
+## Adopted THLB facts
 
-The THLB target is recorded in `config/tsr/overlay.yaml` after the
-`femic tsr overlay-init` step and the reviewed fact extraction. Facts that
-could not be tied to a page are not promoted.
+| Fact | Value | Provenance |
+| --- | ---: | --- |
+| Former North Coast TSA current THLB | 145,808 ha | TSR 2007 rationale, p. 21 |
+| Former Mid Coast TSA current effective THLB | 123,162 ha | TSR 2011 rationale, p. 5 |
+| Derived GBR North THLB target | 268,970 ha | sum of the two predecessor current THLBs |
+
+TSA 46 is the union of the former North Coast and Mid Coast boundaries. The
+symmetric difference is 5,268.5 ha (0.06%), so the predecessor THLB sum is the
+defensible first target.
+
+This is a predecessor-value derivation, not a reviewed GBR netdown. Replace it
+when a GBR land-base netdown is available. The adopted facts are in
+`config/tsr/overlay.yaml`.
 
 ## Predecessor mapping
 

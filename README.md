@@ -25,9 +25,9 @@ inventory, FEMIC export lane, and GBR legal framework, but they are
 
 ## Status
 
-Bootstrap: the repository, AOI, public-data manifest, and build scaffold are in
-place. The upstream FEMIC run and the ws4 model build follow the phases in
-`ROADMAP.md`.
+The calibrated model is built. The FEMIC run, ws4 matrix, baseline, and UI
+geometry are recorded in `notes/reference/ws4-build.md`; the ten-decade
+benchmark is the remaining evidence step.
 
 ## AOI
 
@@ -37,6 +37,10 @@ FADM TSA 46 feature: no supply-block code and no retirement date. The gross area
 includes ocean and foreshore; the VRI block area is the forested subset.
 
 ## Model
+
+The calibrated model has **171,825 blocks**, **2,375,677.18 ha** of block
+area, and **268,970.00 ha** of managed area. The calibration factor is
+`1.1407167870336385`; 9,374 rows saturate.
 
 The model is built by `scripts/build_full_tsa46_model.sh`:
 
