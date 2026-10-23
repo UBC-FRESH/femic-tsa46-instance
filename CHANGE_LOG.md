@@ -39,3 +39,5 @@ status and the GitHub issue comments.
   `data/vri_vclr1p_checkpoint8.feather`, not the TSA 48 `ria_` name.
 
 - Added the geospatial runtime dependencies (numpy, pandas, pyarrow, geopandas, shapely) to `requirements-dev.txt` so CI can collect the model tests.
+
+- Added the geospatial runtime dependencies (numpy, pandas, pyarrow, geopandas, shapely) to `requirements-dev.txt` so CI can collect the model tests.
