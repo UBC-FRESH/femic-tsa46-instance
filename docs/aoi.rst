@@ -1,37 +1,69 @@
 TSA 46 AOI
 ==========
 
-The model AOI is the full Great Bear Rainforest North Timber Supply Area, TSA
-46. The tracked boundary is ``data/source/aoi/tsa46_full.gpkg`` (EPSG:3005,
-layer ``tsa46_full``, 8,697,740.3453 ha gross).
+The model AOI is the full Great Bear Rainforest North Timber Supply Area, TSA 46. The
+tracked boundary is ``data/source/aoi/tsa46_full.gpkg`` (EPSG:3005,
+layer ``tsa46_full``).
 
-The full TSA is the benchmark boundary because the published AAC is TSA-wide.
-The gross area includes ocean and foreshore; the VRI block area is the
-forested subset.
+Boundary
+--------
 
-Source
-------
+.. list-table::
+   :header-rows: 1
 
-The boundary is the single current dissolved feature in the provincial
-``FADM_TSA.gdb`` layer ``WHSE_ADMIN_BOUNDARIES_FADM_TSA``:
+   * - Item
+     - Value
+   * - Source
+     - ``FEMIC_EXTERNAL_DATA_ROOT/bc/tsa/FADM_TSA.gdb``
+   * - Source layer
+     - ``WHSE_ADMIN_BOUNDARIES_FADM_TSA``
+   * - Selection
+     - ``TSA_NUMBER = 46``, ``TSB_NUMBER`` null, ``RETIREMENT_DATE`` null
+   * - Output
+     - ``data/source/aoi/tsa46_full.gpkg``, layer ``tsa46_full``
+   * - CRS
+     - EPSG:3005
+   * - Gross area
+     - 8,697,740.3453 ha
+   * - Bounds
+     - 634372.03, 684898.80, 1029161.54, 1222796.50
 
-- ``TSA_NUMBER`` is ``46``;
-- ``TSB_NUMBER`` is null (the dissolved TSA, not a supply block);
-- ``RETIREMENT_DATE`` is null (the current feature).
+The layer also carries supply-block rows and retired historical versions. The
+selection above keeps the single current dissolved TSA feature. Supply blocks
+are components, not the build boundary.
 
-The supply-block rows and the retired 2017 feature are historical context, not
-build inputs.
+TSA 46 is the union of the former North Coast and Mid Coast boundaries; the symmetric difference is 5,268.5 ha (0.06%).
 
 Legal framework
 ---------------
 
-The Great Bear Rainforest (Forest Management) Act and B.C. Reg. 328/2016
-replaced the former North Coast and Mid Coast TSAs with the GBR North TSA,
-effective January 1, 2017. The AAC for Crown land in the GBR North TSA is
-**803,000 m3/yr**.
+The Great Bear Rainforest (Forest Management) Act and B.C. Reg. 328/2016 came
+into effect on January 1, 2017. They replaced the former North Coast, Mid
+Coast, Kingcome, and Strathcona TSAs with the GBR North, GBR South, and North
+Island TSAs.
 
-Source notes
-------------
+.. list-table::
+   :header-rows: 1
 
-See ``notes/reference/aoi.md`` and ``notes/reference/tsr.md`` for the review
-record and the public sources.
+   * - Item
+     - Value
+   * - Current AAC
+     - 803,000 m3/yr
+   * - Legal source
+     - B.C. Reg. 328/2016, section 5
+   * - Effective date
+     - 2017-01-01
+
+Why the full TSA
+----------------
+
+The published AAC is a TSA-wide legal determination. The full dissolved TSA is
+therefore the only defensible benchmark boundary. District, tenure, or
+supply-block clips are overlays or planning sub-units, not the AAC boundary.
+
+Decision record
+---------------
+
+The review record is ``notes/reference/aoi.md``. The numeric check is
+``data/source/aoi/tsa46_full.summary.json``. A change to
+``selection.boundary_path`` or ``boundary_code`` needs a new recorded decision.
