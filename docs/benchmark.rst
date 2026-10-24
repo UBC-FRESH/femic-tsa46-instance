@@ -103,6 +103,66 @@ The opening-first schedule covers all 21 managed AUs.
 unused. The earlier strict volume-only schedule left three small AUs
 unselected; that result is retained with the dated VDYP-transform runtime.
 
+RESULTS sensitivity
+-------------------
+
+The TSA 48 RESULTS workflow was repeated for TSA 46. The candidate table has
+13 AU/SI rows; five have at least three planting records. The screened input
+uses RESULTS only for those five and the checkpoint AU SI, with the TSA 46
+natural-regeneration density of 4,444 stems/ha.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 40 14 14 18
+
+   * - Scenario
+     - Openings
+     - Blocks
+     - Scheduled area
+   * - Current TSR
+     - 5,587
+     - 8,383
+     - 115,304.5 ha
+   * - RESULTS species, checkpoint SI, 4,444 sph
+     - 6,190
+     - 9,369
+     - 122,730.7 ha
+
+Both meet the ten-decade band with 100% 5-40 ha patches. The RESULTS species mix
+needs **more** area under the same SI and density. That is a yield-consequence,
+not a model-quality score. An earlier 89,835 ha result used harvested-area SI
+and is rejected as biased.
+
+Independent height validation
+-----------------------------
+
+Observed RESULTS cover heights (1,083 immature single-species observations)
+were compared with TIPSY height at age:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 18 18 18
+
+   * - Curve set
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - -1.50 m
+     - 1.74 m
+     - 3.01 m
+   * - RESULTS species
+     - -1.59 m
+     - 1.79 m
+     - 3.11 m
+
+The TSR curves are slightly more accurate. The dominant CWH_HW H cell is
+conservative: age 5-15 bias -1.08 m (-31%), age 16-30 bias -2.02 m (-26%).
+That is an accuracy finding, not a reason to tune the AAC.
+
+See ``notes/reference/results-tipsy.md`` and
+``notes/reference/tipsy-validation.md``.
+
 Baseline versus benchmark
 -------------------------
 

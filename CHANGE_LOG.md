@@ -74,3 +74,15 @@ status and the GitHub issue comments.
   reproducible lane is `scripts/build_tsr_lane.sh`; the method and caveats are
   in `notes/reference/tipsy-curves.md`.
 
+- Repeated the TSA 48 RESULTS workflow for TSA 46. Fetched 34,952 openings,
+  95,254 forest-cover rows, and 9,963 planting rows. Re-derived the AU map and
+  checkpoint SI. The screened RESULTS species mix needs 122,730.7 ha versus
+  115,304.5 ha for TSR under the same 4,444 sph and checkpoint SI; the earlier
+  89,835 ha result used harvested-area SI and is rejected as biased. Added the
+  first independent height validation: TSR bias -1.50 m, MAE 1.74 m, RMSE
+  3.01 m; RESULTS species bias -1.59 m, MAE 1.79 m, RMSE 3.11 m. TSR is
+  slightly more accurate, and the dominant CWH_HW H curve is conservative.
+  Production remains on TSR. See `notes/reference/results-tipsy.md` and
+  `notes/reference/tipsy-validation.md`. `python scripts/dashboard.py` is
+  green.
+
