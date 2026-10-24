@@ -99,3 +99,5 @@ status and the GitHub issue comments.
 
 - Built the TSA 46 managed-SI candidate model at `runtime/tsa46_managed_si`. It meets the ten-decade AAC constraint with 3,631 openings, 5,354 blocks, and 87,106.7 ha. The lower area is a consequence of the higher managed SI, not an accuracy score; the accuracy evidence is the holdout height MAE improvement from 1.86 m to 1.46 m. Volume/DBH validation is blocked because RESULTS basal area is mostly a 1.0 placeholder and the public PSP layer contains active plot locations only, not remeasured measurements. Production remains on TSR. See `notes/reference/tipsy-validation.md`.
 
+- Found the public FAIB ground-plot compilation (PSP/CMI) with plot/tree volume, QMD, stems, age, and top height. TSA 46: 117 sites, 353 visits, 1,763 volume/DBH rows, 603 height rows (98 natural, 19 experimental). Added BTC `stand-structure-basic` support so DBH and stems can be emitted. Volume/DBH validation is now a defined next step, not a data-absence blocker.
+

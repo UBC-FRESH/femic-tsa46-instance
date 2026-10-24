@@ -102,6 +102,34 @@ Volume/DBH validation could not be completed from the available public data:
 Volume, DBH, and mortality validation therefore require a separate PSP/CMI
 data-acquisition task. The candidate model is not a production replacement.
 
+## Public PSP/CMI data
+
+The volume/DBH blocker is now a data-acquisition gap, not a data-absence gap.
+BC FAIB publishes plot- and tree-level ground-plot compilations at:
+
+``https://www.for.gov.bc.ca/ftp/HTS/external/!publish/ground_plot_compilations/psp/``
+
+Available tables include:
+
+- `faib_header.csv` — site coordinates, BEC, TSA, sample type.
+- `faib_sample_byvisit.csv` — visit years and projected ages.
+- `faib_compiled_smries.csv` — plot-level volume, basal area, QMD, stems by
+  utilization limit.
+- `faib_compiled_spcsmries.csv` — species-level volume/BA/QMD/stems.
+- `faib_compiled_spcsmries_siteage.csv` — species age, top height, and SI.
+
+For TSA 46:
+
+- 117 PSP/CMI sites, 353 visits
+- 1,763 visit rows with merchantable volume and QMD
+- 603 rows with leading-species top height
+- sample types: 98 natural-growth PSP, 19 experimental PSP
+
+This unblocks a real volume/DBH validation table, but not a clean one: TIPSY is
+a managed-stand model, natural-growth PSP is unmanaged, and experimental PSP
+may carry treatments. The validation must report sample type separately and
+use the 12.5 cm utilization limit consistently.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated.
