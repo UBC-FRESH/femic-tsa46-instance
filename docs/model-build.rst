@@ -130,16 +130,18 @@ first decade and then declines. The baseline run is
 AAC benchmark
 -------------
 
-The benchmark is a separate search from the baseline:
+The benchmark of record is the TSR-consistent opening-first run:
 
 .. code-block:: bash
 
-   scripts/run_aac_benchmark.sh
+   export FEMIC_BTC_WINEPREFIX=/path/to/wineprefix-mono
+   export FEMIC_BTC_DISPLAY=:99
+   TSA=46 bash scripts/build_tsr_lane.sh
 
 The target band is 8,030,000-8,031,000 m3 per decade at
-803,000 m3/yr. The recorded run schedules 2,792 blocks with
-3,890 events and meets all ten decades. See :doc:`benchmark` for
-the decade table and the coverage run.
+803,000 m3/yr. The recorded run schedules 5,587 openings on
+8,383 blocks and meets all ten decades. See :doc:`benchmark` for the
+decade table and the opening-size result.
 
 Signal and coverage gates
 -------------------------
@@ -149,11 +151,11 @@ Signal and coverage gates
    python scripts/check_runtime_signal.py \
      --dataset runtime/tsa46_full/matrix \
      --bundle data/model_input_bundle \
-     --run runtime/tsa46_full/runs/aac_benchmark
+     --run runtime/tsa46_full/runs/opening_first
 
    python scripts/check_harvest_coverage.py \
      --dataset runtime/tsa46_full/matrix \
-     --schedule runtime/tsa46_full/runs/aac_benchmark/schedule.csv \
+     --schedule runtime/tsa46_full/schedules/opening_first.csv \
      --allowlist config/harvest_coverage.allowlist.json
 
 The runtime-signal gate fails on a missing species/SI label, an orphan track,
@@ -168,14 +170,37 @@ VDYP7 is a 32-bit Windows executable. On Linux it runs under Wine, including the
 ``all`` batches exceeded the short VDYP console timeout in the TSA 48 reference
 run. Auto sampling fits from fewer stands, so it is a provisional workaround.
 
-The first lane also sets ``managed_curve_mode: vdyp_transform`` and therefore
-does not require BatchTIPSY. That transform is a provisional managed curve lane,
-not accepted TIPSY yield curves.
+The production bundle uses BatchTIPSY 4.7 under the same Wine/Xvfb boundary.
+The FEMIC data-prep profile stays ``managed_curve_mode: vdyp_transform``; the
+TSR lane replaces the treated curves after the checkpoint and input table are
+materialized. The curves are built by ``scripts/build_tsr_lane.sh``; the VDYP
+transform is retained only as a dated comparison at
+``runtime/tsa46_full_vdyp_20261023``.
 
 The legacy pipeline also needs ``plots/`` to exist, a
 ``config/tipsy/tsa46.yaml`` case file, and the materialized
 ``siteprod.tif`` and ``misc.thlb.tif`` rasters. ArcRasterRescue is only needed
 when the pre-stacked SiteProd raster is absent.
+
+TSR curve lane
+--------------
+
+The TSR lane derives the VRI species mix, writes a BatchTIPSY input, runs BTC,
+parses the transposed output, and replaces only the treated curves in a bundle
+copy:
+
+.. code-block:: bash
+
+   python scripts/build_tsr_tipsy_input.py --tsa 46
+   python scripts/run_tsr_tipsy.py --tsa 46
+   python scripts/build_tsr_bundle.py \
+     --bundle-dir data/model_input_bundle \
+     --curves tipsy_io/runs/curves_tsa46_tsr.csv \
+     --out data/model_input_bundle_tsr
+
+The input assumptions are recorded in ``config/tipsy/tsa46.yaml`` and
+``notes/reference/tipsy-curves.md``. The BatchTIPSY install and Wine prefix are
+host-local and not committed.
 
 Opening policy
 --------------

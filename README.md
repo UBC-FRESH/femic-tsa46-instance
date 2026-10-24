@@ -28,9 +28,10 @@ inventory, FEMIC export lane, and GBR legal framework, but they are
 The calibrated model is built and the ten-decade benchmark meets all ten
 targets at 803,000 m3/yr. A safe sliver merge removed 2,271 blocks (1,367.76 ha)
 without changing net area or managed area. The FEMIC run, ws4 matrix, benchmark,
-and UI geometry are recorded in `notes/reference/ws4-build.md`. The
-opening-first policy holds 100% of patch area in the 5-40 ha class and all ten
-AAC decades met; see `notes/reference/opening-policy.md`.
+and UI geometry are recorded in `notes/reference/ws4-build.md`. The managed curves are TSR-consistent BatchTIPSY 4.7 curves, not a VDYP
+transform. The opening-first policy holds 100% of patch area in the 5-40 ha
+class and all ten AAC decades met; see `notes/reference/opening-policy.md` and
+`notes/reference/tipsy-curves.md`.
 
 ## AOI
 
@@ -45,14 +46,10 @@ The calibrated model has **169,554 blocks**, **2,375,677.18 ha** of block
 area, and **268,970.00 ha** of managed area. The calibration factor is
 `1.1407167870336385`; 9,374 rows saturate.
 
-The model is built by `scripts/build_full_tsa46_model.sh`:
+The production model is built by `scripts/build_tsr_lane.sh`:
 
 ```bash
-MODEL_DIR=runtime/tsa46_full \
-PATCHWORKS_OUT=output/patchworks_tsa46_full \
-CALIBRATE_THLB=1 \
-THLB_TARGET_HA=268970 \
-scripts/build_full_tsa46_model.sh
+TSA=46 bash scripts/build_tsr_lane.sh
 ```
 
 The script exports the FEMIC inventory, compiles and validates the ws4 matrix,
@@ -63,7 +60,8 @@ exact UI geometry and land-base underlay.
 
 `config/targets.tsa46_full.yaml` carries ten per-decade targets with an
 **8,030,000–8,031,000 m3** band around the published **803,000 m3/yr** AAC
-(B.C. Reg. 328/2016, effective January 1, 2017).
+(B.C. Reg. 328/2016, effective January 1, 2017). The `opening_first` run meets
+all ten decades and covers all 21 managed AUs.
 
 ## Web UI
 

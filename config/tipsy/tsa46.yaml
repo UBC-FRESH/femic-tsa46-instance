@@ -1,88 +1,117 @@
-# Case onboarding template for FEMIC TIPSY rule configuration.
-# Copy this file to a case-specific YAML file under config/tipsy/. The schema
-# keeps the legacy tsa_code key for compatibility even when the case is a
-# non-TSA FMU.
-
+# TSR-consistent TIPSY rule scaffold. The production lane is
+# scripts/build_tsr_lane.sh; this file preserves the reviewed assumptions for
+# the config-driven FEMIC pipeline.
 schema_version: 1
-tsa_code: "46"  # legacy key name; use as the case/FMU code where applicable
-
+tsa_code: '46'
 metadata:
   source_tsr:
-    - title: ""
-      year: null
-      url: ""
-      notes: ""
-  author: ""
-  created_utc: ""
-  notes: ""
-
+  - title: North Coast TSA Timber Supply Review 3 Data Package
+    year: 2007
+    url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Coast_21/TSR_2007/Data_Package/DFAM/north_coast_tsr3_data_package_june06.pdf
+    notes: 'Table 5.2: OAF1 15%, OAF2 5%, regeneration delay 2 years for hemlock/balsam and 1 year for cedar/hemlock. Future AUs regenerate to the existing analysis-unit species composition.'
+  - title: Mid Coast TSA Timber Supply Review 3 Data Package
+    year: 2011
+    url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/Mid_Coast_19/TSR_2011/Data_Package/Midcoast_TSR3_Data_Package_Mar10-09.pdf
+    notes: Predecessor TSA 19; used for species and regeneration context.
+  author: UBC FRESH Lab
+  created_utc: '2026-10-24T00:00:00+00:00'
+  notes: Per-AU species mixes are derived from the calibrated VRI checkpoint by scripts/build_tsr_tipsy_input.py. This rule is the fallback for the legacy config-driven pipeline.
 defaults:
   e:
+    OAF1: 0.85
     OAF2: 0.95
-    FIZ: "I"
-    Regen_Method: "P"
+    FIZ: I
+    Regen_Method: P
     Proportion: 1
+    Regen_Delay: 2
+    Density: 4444
+    SPP_1: Cw
+    PCT_1: 45
+    SPP_2: Hw
+    PCT_2: 30
+    SPP_3: Yc
+    PCT_3: 25
   f:
+    OAF1: 0.85
     OAF2: 0.95
-    FIZ: "I"
-    Regen_Method: "P"
+    FIZ: I
+    Regen_Method: P
     Proportion: 1
+    Regen_Delay: 2
+    Density: 4444
+    SPP_1: Cw
+    PCT_1: 45
+    SPP_2: Hw
+    PCT_2: 30
+    SPP_3: Yc
+    PCT_3: 25
     SI_c1: 1.0
     SI_c2: 0.0
-
-# Rule order is first-match-wins.
 rules:
-  - id: "gbr_provisional_default"
-    when: {}
-    assign:
-      e:
-        Regen_Delay: 2
-        Density: 1200
-        SPP_1: "FDI"
-        PCT_1: 60
-        SPP_2: "HWC"
-        PCT_2: 40
-      f:
-        Regen_Delay: 1
-        Density: 1200
-        SPP_1: "FDI"
-        PCT_1: 60
-        SPP_2: "HWC"
-        PCT_2: 40
-        SI_c1: 1.0
-        SI_c2: 0.0
-    notes: "Provisional broad coastal default. Replace with reviewed TSA 46 TIPSY rules; the first ws4 lane uses VDYP-transform managed curves." 
-
+- id: gbr_tsr_default
+  when: {}
+  assign:
+    e:
+      OAF1: 0.85
+      OAF2: 0.95
+      FIZ: I
+      Regen_Method: P
+      Proportion: 1
+      Regen_Delay: 2
+      Density: 4444
+      SPP_1: Cw
+      PCT_1: 45
+      SPP_2: Hw
+      PCT_2: 30
+      SPP_3: Yc
+      PCT_3: 25
+    f:
+      OAF1: 0.85
+      OAF2: 0.95
+      FIZ: I
+      Regen_Method: P
+      Proportion: 1
+      Regen_Delay: 2
+      Density: 4444
+      SPP_1: Cw
+      PCT_1: 45
+      SPP_2: Hw
+      PCT_2: 30
+      SPP_3: Yc
+      PCT_3: 25
+      SI_c1: 1.0
+      SI_c2: 0.0
+  notes: TSR-consistent fallback. OAF1 is fixed at 0.85 by build_tsr_tipsy_input.py because the legacy builder derives it from VDYP.
 required_fields:
-  - AU
-  - TBLno
-  - BEC
-  - Proportion
-  - Regen_Delay
-  - SI
-  - OAF1
-  - OAF2
-  - FIZ
-  - Regen_Method
-  - Density
-  - SPP_1
-  - PCT_1
-  - SPP_2
-  - PCT_2
-  - SPP_3
-  - PCT_3
-  - SPP_4
-  - PCT_4
-  - SPP_5
-  - PCT_5
-  - GW_1
-  - GW_2
-  - GW_3
-  - GW_4
-  - GW_5
-  - GW_age_1
-  - GW_age_2
-  - GW_age_3
-  - GW_age_4
-  - GW_age_5
-  - Util_DBH_cm
+- AU
+- TBLno
+- BEC
+- Proportion
+- Regen_Delay
+- SI
+- OAF1
+- OAF2
+- FIZ
+- Regen_Method
+- Density
+- SPP_1
+- PCT_1
+- SPP_2
+- PCT_2
+- SPP_3
+- PCT_3
+- SPP_4
+- PCT_4
+- SPP_5
+- PCT_5
+- GW_1
+- GW_2
+- GW_3
+- GW_4
+- GW_5
+- GW_age_1
+- GW_age_2
+- GW_age_3
+- GW_age_4
+- GW_age_5
+- Util_DBH_cm

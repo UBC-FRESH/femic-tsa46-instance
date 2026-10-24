@@ -2,7 +2,7 @@
 
 Date: 2026-10-24
 Dataset: `runtime/tsa46_full/matrix`
-Benchmark: `runtime/tsa46_full/runs/aac_benchmark`
+Benchmark: `runtime/tsa46_full/runs/opening_first`
 
 ## Species composition
 
@@ -18,21 +18,18 @@ runtime-signal gate passes.
 
 ## Benchmark
 
-- Unique blocks harvested: 2,792.
-- Events: 3,890.
-- All ten decade targets met at the published AAC.
-- Coverage run: 2,920 blocks, 4,025 events, ten decades
-  met.
+- Openings: 5,587.
+- Scheduled blocks: 8,383.
+- All ten decade targets met at the published 803,000 m3/yr AAC.
+- The opening-first schedule fills the 5-40 ha class and covers every managed
+  AU.
 
 ## Zero-harvest AUs
 
-The strict volume-only benchmark leaves these managed AUs unselected:
-
-- 4601002 (718.2 ha), 4601005 (204.0 ha), 4601006 (413.1 ha)
-
-They are allowlisted in `config/harvest_coverage.allowlist.json` with the reason
-that the coverage run harvests them. The coverage gate passes on the coverage
-run with no allowlist.
+The opening-first schedule covers every managed AU. There are no zero-harvest
+AUs and `config/harvest_coverage.allowlist.json` is empty. The earlier strict
+volume-only schedule left small AUs unselected; that result is retained with
+the dated VDYP-transform runtime.
 
 ## Status
 

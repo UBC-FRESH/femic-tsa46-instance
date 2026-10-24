@@ -22,10 +22,21 @@ Targets
    * - Target file
      - ``config/targets.tsa46_full.yaml``
    * - Run
-     - ``runtime/tsa46_full/runs/aac_benchmark``
+     - ``runtime/tsa46_full/runs/opening_first``
 
-Strict benchmark result
------------------------
+TSR-consistent curves
+---------------------
+
+The managed lane uses BatchTIPSY 4.7 curves, not the earlier VDYP transform.
+The input follows the predecessor TSRs: the future stand regenerates to the
+existing analysis-unit species composition, with 4,444 stems/ha, OAF1 = 0.85,
+OAF2 = 0.95, and a one- or two-year regeneration delay. The species mix is
+area-weighted from the calibrated VRI checkpoint. The source TSRs are the North
+Coast TSA TSR 3 Data Package (2007, Table 5.2) and the Mid Coast TSA TSR 3 Data
+Package (2011). The full method is in ``notes/reference/tipsy-curves.md``.
+
+Result
+------
 
 .. list-table::
    :header-rows: 1
@@ -35,54 +46,38 @@ Strict benchmark result
      - Realized volume (m3)
      - Band status
    * - 1
-     - 8,030,998.942
+     - 8,030,924.8
      - met
    * - 2
-     - 8,030,998.803
+     - 8,030,987.3
      - met
    * - 3
-     - 8,030,994.445
+     - 8,030,958.2
      - met
    * - 4
-     - 8,030,987.469
+     - 8,030,983.1
      - met
    * - 5
-     - 8,030,983.938
+     - 8,030,984.6
      - met
    * - 6
-     - 8,030,999.755
+     - 8,030,830.4
      - met
    * - 7
-     - 8,030,991.308
+     - 8,030,975.2
      - met
    * - 8
-     - 8,030,958.203
+     - 8,030,481.2
      - met
    * - 9
-     - 8,030,989.593
+     - 8,030,625.8
      - met
    * - 10
-     - 8,030,995.988
+     - 8,030,816.6
      - met
 
-All ten decades are inside the band. The search starts from the target-driven
-greedy seed, schedules 2,792 blocks, and records
-3,885 events. The objective is 0.0.
-
-Coverage run
-------------
-
-The strict volume-only search leaves small managed AUs unselected. A separate
-coverage run starts from the strict schedule, adds one event for each AU above
-the 100 ha threshold, and re-optimizes. It is a diagnostic, not the benchmark
-of record.
-
-- Coverage run: ``runtime/tsa46_full/runs/aac_benchmark_coverage``
-- Blocks scheduled: 2,920
-- Events: 4,025
-- AUs covered: 4601002, 4601005, and 4601006
-- All ten decades meet the strict band with objective approximately 0.
-- Per-decade report: ``runtime/tsa46_full/runs/aac_benchmark_coverage/report_targets.csv``
+All ten decades are inside the band. The opening-first schedule schedules
+5,587 openings on 8,383 blocks, covering 115,304.5 ha.
 
 Opening-first policy
 --------------------
@@ -92,19 +87,21 @@ topology and a patch account. The account joins only blocks that touch and
 uses ``product.Treated.managed.CC`` as the treated-area criterion.
 
 - Topology edges: 244,270
-- Openings: 8,640
-- Scheduled blocks: 13,409
-- Scheduled area: 148,307.3 ha
-- Opening area range: 5.1-40.0 ha
-- Patch area: 226,503.6 ha
+- Opening range: 5.3-40.0 ha
+- Patch area: 172,207.3 ha
+- Patch classes: **100% in the 5-40 ha class at every year**
 
-**100% of patch area is in the 5-40 ha class at every year.** The 0-1, 1-5,
-40-50 and >50 ha classes are all 0.0%.
+The 0-1, 1-5, 40-50 and >50 ha classes are all 0.0%. The opening-first
+schedule is a deterministic seed, not a final optimized plan. The full record
+is ``notes/reference/opening-policy.md``.
 
-All ten AAC decades met at 8,030,000-8,031,000 m3.
+Harvest coverage
+----------------
 
-
-The full record is ``notes/reference/opening-policy.md``.
+The opening-first schedule covers all 21 managed AUs.
+``scripts/check_harvest_coverage.py`` reports no gaps, so the allowlist is
+unused. The earlier strict volume-only schedule left three small AUs
+unselected; that result is retained with the dated VDYP-transform runtime.
 
 Baseline versus benchmark
 -------------------------
@@ -117,15 +114,29 @@ not to judge the AAC.
 Rerun
 -----
 
-.. code-block:: bash
-
-   scripts/run_aac_benchmark.sh
-   # optional: change the search budget
-   ITERATIONS=8000 PATIENCE=1000 THREADS=8 scripts/run_aac_benchmark.sh
-
-The watcher is observational and does not persist a run:
+The supported lane is:
 
 .. code-block:: bash
 
-   scripts/watch_aac_benchmark.sh
-   PLAIN=1 scripts/watch_aac_benchmark.sh
+   export FEMIC_BTC_WINEPREFIX=/path/to/wineprefix-mono
+   export FEMIC_BTC_DISPLAY=:99
+   TSA=46 bash scripts/build_tsr_lane.sh
+
+The BatchTIPSY install and Wine prefix are not committed. See
+``notes/reference/tipsy-curves.md`` for the one-time setup. To rerun only the
+simulation and report:
+
+.. code-block:: bash
+
+   python -m ws4.cli simulate \
+     --dataset runtime/tsa46_full/matrix \
+     --schedule runtime/tsa46_full/schedules/opening_first.csv \
+     --out runtime/tsa46_full/runs/opening_first \
+     --years 100 \
+     --topology runtime/tsa46_full/topology.csv \
+     --patch-accounts config/patch_accounts.tsa46_full.yaml \
+     --patch-membership
+
+   python -m ws4.cli report \
+     --run runtime/tsa46_full/runs/opening_first \
+     --targets config/targets.tsa46_full_opening.yaml
