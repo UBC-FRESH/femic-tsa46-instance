@@ -55,8 +55,10 @@ current TSR curves are slightly more accurate than the RESULTS species mix
 understates the managed/harvested stand SI (TSA 46 CWH_HW H: 23.0 m observed
 versus 16.3 m checkpoint). A holdout test found that a managed-land SI improves TSA 46 height accuracy
 (MAE 1.86 m to 1.46 m). The sibling TSA 47 test did not improve (1.52 m to
-1.60 m). Volume, DBH, and mortality remain unvalidated.
-Record: ``notes/reference/tipsy-validation.md``.
+1.60 m). Volume, DBH, and mortality remain unvalidated because RESULTS basal area is a
+placeholder and public PSP data are active-site locations only, not
+measurements. A side-by-side TSA 46 managed-SI model exists, but production
+remains on TSR. Record: ``notes/reference/tipsy-validation.md``.
 
 6. UI geometry scale
 --------------------

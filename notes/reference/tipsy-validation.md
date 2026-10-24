@@ -80,6 +80,28 @@ Clear improvement. Managed SI nearly removes the bias and cuts MAE by 0.40 m. TS
 This is an accuracy experiment only; no production curve or AAC target was
 changed.
 
+## Candidate model
+
+The training-split managed-SI curves were built into a side-by-side ws4 model at
+`runtime/tsa46_managed_si`. It meets the ten-decade AAC constraint with 3,631
+openings, 5,354 blocks, and 87,106.7 ha. The area is lower than TSR, but that is
+a consequence of the higher managed SI, not evidence of correctness. The
+accuracy evidence is the holdout height result above. Production remains on
+TSR.
+
+## Volume and DBH data limitation
+
+Volume/DBH validation could not be completed from the available public data:
+
+- RESULTS `I_BASAL_AREA` is mostly a 1.0 placeholder and has only 570 non-null
+  rows out of 95,254, so observed quadratic-mean DBH cannot be computed.
+- The public PSP layer is `WHSE_FOREST_VEGETATION.ISMC_PSP_ACTIVE_SITES_SP`,
+  which is active plot locations only, not remeasured tree measurements.
+- No CMI or PSP measurement table is materialized in the public-data tree.
+
+Volume, DBH, and mortality validation therefore require a separate PSP/CMI
+data-acquisition task. The candidate model is not a production replacement.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated.

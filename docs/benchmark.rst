@@ -202,6 +202,20 @@ Managed SI clearly improves TSA 46 accuracy, including CWH_HW H at ages 5-15
 See ``notes/reference/results-tipsy.md`` and
 ``notes/reference/tipsy-validation.md``.
 
+Candidate managed-SI model
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The training-split managed-SI curves were built into a side-by-side model at
+``runtime/tsa46_managed_si``. It meets the ten-decade AAC constraint with 3,631
+openings, 5,354 blocks, and 87,106.7 ha, all patches in the 5-40 ha class. The
+area is lower than TSR, but that is a yield consequence, not an accuracy score.
+The accuracy evidence is the holdout height MAE improvement from 1.86 m to
+1.46 m.
+
+Volume/DBH validation is blocked by data: RESULTS basal area is mostly a 1.0
+placeholder, and the public PSP layer is active plot locations only, not
+remeasured tree measurements. Production remains on TSR.
+
 Baseline versus benchmark
 -------------------------
 
