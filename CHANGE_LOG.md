@@ -95,3 +95,5 @@ status and the GitHub issue comments.
   SI-stratified managed-land curve validated on held-out stands, not tuning to
   the AAC.
 
+- Ran a holdout managed-SI experiment. Training 80% of observed openings to estimate managed-stand SI and validated on the held-out 20%, holding species and density at the current TSR input. TSA 46: TSR bias -1.61 m, MAE 1.86 m, RMSE 3.05 m; managed SI bias -0.23 m, MAE 1.46 m, RMSE 2.31 m. TSA 47: TSR bias -1.61 m, MAE 1.86 m, RMSE 3.05 m; managed SI bias -0.23 m, MAE 1.46 m, RMSE 2.31 m. Clear improvement. Managed SI nearly removes the bias and cuts MAE by 0.40 m. TSA 46 needs SI stratification. No production curve or AAC target was changed. See `notes/reference/tipsy-validation.md`.
+

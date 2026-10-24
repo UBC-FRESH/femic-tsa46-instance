@@ -169,6 +169,36 @@ the checkpoint AU median is **16.3 m**. The checkpoint median covers the full
 THLB; the immature/harvested stands are on better sites. The next test is an
 SI-stratified managed-land curve, validated on held-out stands.
 
+Holdout managed-SI test
+~~~~~~~~~~~~~~~~~~~~~~~
+
+A deterministic 80/20 opening split estimated managed-stand SI from training
+observations and tested it on held-out heights, holding species and density at
+the current TSR input.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 16 16 16 16
+
+   * - Curve set
+     - n
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - 369
+     - -1.61 m
+     - 1.86 m
+     - 3.05 m
+   * - Managed SI
+     - 369
+     - -0.23 m
+     - 1.46 m
+     - 2.31 m
+
+Managed SI clearly improves TSA 46 accuracy, including CWH_HW H at ages 5-15
+(bias -1.01 m to -0.21 m). This supports SI stratification, not an AAC tune.
+
 See ``notes/reference/results-tipsy.md`` and
 ``notes/reference/tipsy-validation.md``.
 

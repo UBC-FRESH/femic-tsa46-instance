@@ -63,6 +63,23 @@ understates the managed-stand SI. That is a structural issue, not a reason to
 raise the AAC. The next test should be an SI-stratified managed-land curve,
 validated on held-out stands.
 
+## Holdout managed-SI test
+
+A deterministic opening-id split (80% training, 20% holdout) was used to
+estimate a managed-stand SI for each AU/SI cell. Species and density were held
+at the current TSR input; only SI changed. The holdout observations were not
+used to estimate SI.
+
+| Curve set | n | Bias | MAE | RMSE |
+| --- | ---: | ---: | ---: | ---: |
+| Current TSR | 369 | -1.61 m | 1.86 m | 3.05 m |
+| Managed SI | 369 | -0.23 m | 1.46 m | 2.31 m |
+
+Clear improvement. Managed SI nearly removes the bias and cuts MAE by 0.40 m. TSA 46 needs SI stratification.
+
+This is an accuracy experiment only; no production curve or AAC target was
+changed.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated.

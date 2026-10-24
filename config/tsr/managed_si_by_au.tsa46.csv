@@ -1,0 +1,14 @@
+stratum_code,si_level,n_train,managed_si,n_holdout,used,feature_id,managed_si_applied
+CWH_BA,H,105,22.0,30,True,23005.0,22.0
+CWH_BA,M,6,,3,False,,
+CWH_CW,H,35,20.0,17,True,23000.0,20.0
+CWH_CW,L,2,,0,False,,
+CWH_CW,M,4,,1,False,,
+CWH_FDC,H,7,,7,False,,
+CWH_FDC,L,2,,0,False,,
+CWH_FDC,M,13,18.0,4,True,22006.0,18.0
+CWH_HW,H,526,23.0,297,True,23001.0,23.0
+CWH_HW,L,5,,2,False,,
+CWH_HW,M,3,,7,False,,
+CWH_YC,H,2,,0,False,,
+MH_H,H,4,,1,False,,
