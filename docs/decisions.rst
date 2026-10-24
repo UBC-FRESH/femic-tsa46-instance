@@ -34,24 +34,20 @@ Three small managed AUs are unselected by the strict volume-only benchmark:
 
 .. list-table::
    :header-rows: 1
-   :widths: 16 20 18
+   :widths: 16 20
 
    * - AU
      - Managed area (ha)
-     - Total area (ha)
-   * - 4601004
-     - 417.5
-     - 75,182.3
-   * - 4602003
-     - 1,862.5
-     - 42,747.1
+   * - 4601002
+     - 718.2
    * - 4601005
      - 204.0
-     - 27,405.9
+   * - 4601006
+     - 413.1
 
-Total: **2,483.9 ha (0.92% of the managed area)**. The
-coverage run selects the AUs above the 100 ha threshold and re-optimizes. The
-strict benchmark remains the benchmark of record. Record:
+Total: **1,335.3 ha (0.50% of the managed area)**. The coverage run selects
+these AUs and re-optimizes. The strict benchmark remains the benchmark of
+record. Record:
 ``notes/reference/model-sanity.md`` and
 ``config/harvest_coverage.allowlist.json``.
 

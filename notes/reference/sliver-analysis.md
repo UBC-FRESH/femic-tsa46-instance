@@ -176,3 +176,15 @@ PY
 The spatial merge analysis reads
 `output/patchworks_tsa46_full/fragments/fragments.shp`, builds the block
 attributes, and queries touching neighbours with the GeoPandas spatial index.
+
+## Applied
+
+On 2026-10-24 the safe merge was adopted at the 1.0 ha cutoff with the strict
+same-AU/IFM/origin, age-within-20-years, and neighbour-retention-zero rule.
+
+- Blocks merged: 2,271; area merged: 1,367.76 ha; net area change: 0.0 ha.
+- Blocks after merge: 169,554; compiled fragments: 188,037.
+- Strict AAC benchmark: 2,792 blocks, all ten decades met.
+- Coverage run: 2,920 blocks, all ten decades met; the remaining unselected
+  AUs are allowlisted and covered by the coverage run.
+- Retention/IFM split fragments were not merged.

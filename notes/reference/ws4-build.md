@@ -20,49 +20,59 @@ scripts/build_full_tsa46_model.sh
 | --- | ---: |
 | AU count | 21 |
 | Curves | 85 |
-| Fragments exported | 171,825 |
-| Blocks compiled | 171,825 |
+| Input fragments | 171,825 |
+| Blocks after safe merge | 169,554 |
+| Compiled fragments | 188,037 |
 | Block area | 2,375,677.18 ha |
-| Managed area, uncalibrated | 238,963.49 ha |
-| Managed area, calibrated | 268,970.00 ha |
-| Calibration factor | 1.1407167870336385 |
-| Saturated rows | 9,374 |
+| Managed area | 268,970 ha |
 
-The calibrated THLB is the derived predecessor-value target in
-`config/tsr/overlay.yaml`: the former North Coast (145,808 ha) and Mid Coast
-(123,162 ha) current THLBs. TSA 46 is the union of the two retired TSA
-boundaries (symmetric difference 5,268.5 ha, 0.06%).
+## Safe sliver cleanup
+
+`scripts/merge_slivers.py` merges only small blocks that preserve model
+semantics: same AU, same IFM, same origin, area-weighted age within 20 years,
+and both blocks with `RETENTION = 0`. Retention/IFM split fragments are never
+merged, and isolated small blocks are kept.
+
+| Measure | Value |
+| --- | ---: |
+| Small-block cutoff | 1.0 ha |
+| Blocks merged | 2,271 |
+| Area merged | 1,367.76 ha |
+| Net area change | 0.0 ha |
+| Skipped | age 257, different AU 1,771, different IFM 200, different origin 32, host-is-candidate 213, no touching neighbour 1,215, retention 21 |
 
 ## Benchmark
 
 `scripts/run_aac_benchmark.sh` runs the ten-decade benchmark with the
-target-driven greedy seed. `config/targets.tsa46_full.yaml` asks for
-8,030,000-8,031,000 m3 per decade at 803,000 m3/yr.
+target-driven greedy seed. `config/targets.tsa46_full.yaml` asks for the
+published 803,000 m3/yr.
 
-The baseline schedule is a clearcut-at-age-60 reference, not the benchmark. It
-dumps all mature stands in the first decade and is reported only as a
-reproducible starting point.
+The strict benchmark schedules 2,792 blocks with
+3,890 events and meets all ten decades with objective 0.0.
+
+The coverage run schedules 2,920 blocks with 4,025
+events, meets all ten decades, and covers the remaining above-threshold AUs:
+4601002 (718.2 ha), 4601005 (204.0 ha), 4601006 (413.1 ha).
 
 ## Validation
 
-- `ws4 build` and `ws4 validate` pass on the full matrix.
-- The UI geometry has one feature per block and the land base is the TSA 46 AOI.
-- `runtime/tsa46_full/evidence/thlb_calibration.json` records the calibration.
-- The benchmark report is `runtime/tsa46_full/runs/aac_benchmark/report_targets.csv`.
-
-## Related dataset
-
-The GBR South TSA 47 model is built independently in
-`UBC-FRESH/femic-tsa47-instance`. See
-`notes/reference/related-instances.md`.
+- `ws4 build` and `ws4 validate` pass on the merged matrix.
+- `scripts/check_runtime_signal.py` passes.
+- `scripts/check_harvest_coverage.py` passes on the coverage run.
+- The UI geometry is rendered from the merged fragments.
 
 ## UI geometry levels
 
 The build writes two UI geometry files:
 
-- `fragments.geojson` — 100 m simplified block layer served by default.
-- `fragments_full.geojson` — unsimplified block layer, retained for viewport
-  detail and future tiled serving.
+- `fragments.geojson` — 100 m simplified block layer, served by default.
+- `fragments_full.geojson` — unsimplified block layer, retained for detail.
 
-The 100 m overview reduces the TSA 46 map response from about 444 MB to 74 MB.
-That is an interim scale fix, not a substitute for viewport or tiled serving.
+The overview is 54.4 MiB; the full layer is 232.7 MiB. The 100 m
+overview is an interim scale fix, not a substitute for viewport or tiled
+serving.
+
+## Related dataset
+
+The sibling instance is documented in
+`notes/reference/related-instances.md`.

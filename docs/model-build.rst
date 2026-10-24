@@ -67,9 +67,9 @@ the baseline schedule and simulation, and the UI geometry preparation.
    * - Dataset fact
      - Value
    * - Blocks
-     - 171,825
+     - 169,554
    * - Fragments in the compiled dataset
-     - 190,308
+     - 188,037
    * - Block area
      - 2,375,677.18 ha
    * - Tracks
@@ -84,6 +84,16 @@ the baseline schedule and simulation, and the UI geometry preparation.
      - 51
    * - Curve rows
      - 4,667
+
+Safe sliver cleanup
+-------------------
+
+The build runs ``scripts/merge_slivers.py`` before ``ws4 build``. It merges
+only small blocks with the same AU, IFM, and origin, an area-weighted age
+difference of at most 20 years, and a neighbour with ``RETENTION = 0``.
+Retention/IFM split fragments are never merged and isolated small blocks are
+kept. The merge removed 2,271 blocks (1,367.76 ha) and left
+net area and managed area unchanged.
 
 THLB calibration
 ----------------
@@ -128,7 +138,7 @@ The benchmark is a separate search from the baseline:
 
 The target band is 8,030,000-8,031,000 m3 per decade at
 803,000 m3/yr. The recorded run schedules 2,792 blocks with
-3,885 events and meets all ten decades. See :doc:`benchmark` for
+3,890 events and meets all ten decades. See :doc:`benchmark` for
 the decade table and the coverage run.
 
 Signal and coverage gates
