@@ -28,7 +28,9 @@ inventory, FEMIC export lane, and GBR legal framework, but they are
 The calibrated model is built and the ten-decade benchmark meets all ten
 targets at 803,000 m3/yr. A safe sliver merge removed 2,271 blocks (1,367.76 ha)
 without changing net area or managed area. The FEMIC run, ws4 matrix, benchmark,
-and UI geometry are recorded in `notes/reference/ws4-build.md`.
+and UI geometry are recorded in `notes/reference/ws4-build.md`. The
+opening-first policy holds 100% of patch area in the 5-40 ha class and all ten
+AAC decades met; see `notes/reference/opening-policy.md`.
 
 ## AOI
 

@@ -84,6 +84,28 @@ of record.
 - All ten decades meet the strict band with objective approximately 0.
 - Per-decade report: ``runtime/tsa46_full/runs/aac_benchmark_coverage/report_targets.csv``
 
+Opening-first policy
+--------------------
+
+The opening-size and adjacency policy is applied with a touching-block
+topology and a patch account. The account joins only blocks that touch and
+uses ``product.Treated.managed.CC`` as the treated-area criterion.
+
+- Topology edges: 244,270
+- Openings: 8,640
+- Scheduled blocks: 13,409
+- Scheduled area: 148,307.3 ha
+- Opening area range: 5.1-40.0 ha
+- Patch area: 226,503.6 ha
+
+**100% of patch area is in the 5-40 ha class at every year.** The 0-1, 1-5,
+40-50 and >50 ha classes are all 0.0%.
+
+All ten AAC decades met at 8,030,000-8,031,000 m3.
+
+
+The full record is ``notes/reference/opening-policy.md``.
+
 Baseline versus benchmark
 -------------------------
 
