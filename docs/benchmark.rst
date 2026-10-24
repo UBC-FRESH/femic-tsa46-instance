@@ -216,6 +216,18 @@ Volume/DBH validation is blocked by data: RESULTS basal area is mostly a 1.0
 placeholder, and the public PSP layer is active plot locations only, not
 remeasured tree measurements. Production remains on TSR.
 
+Nemora pilot
+~~~~~~~~~~~~
+
+Nemora's FAIB HPS pipeline was run on the public ground-plot data. TSA 46 has
+117 PSP/CMI sites and 105 non-PSP GBR North plots, but only **16** managed/young
+rows matched a TIPSY AU after species/SI/age filtering (4 CMI, 6 NFI, 6 YSM).
+The sample is too sparse to quantify volume/DBH accuracy. Natural PSP_G and
+experimental PSP_R plots were not used as a managed-TIPSY benchmark.
+
+Nemora's non-PSP HPS loader assumes integer plot ids; the GBR files use
+`I/W/E/N/S` codes. A staged code-to-index copy was required.
+
 Baseline versus benchmark
 -------------------------
 

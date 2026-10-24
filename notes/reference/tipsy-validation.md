@@ -130,6 +130,24 @@ a managed-stand model, natural-growth PSP is unmanaged, and experimental PSP
 may carry treatments. The validation must report sample type separately and
 use the 12.5 cm utilization limit consistently.
 
+## Nemora pilot
+
+Nemora's FAIB HPS pipeline was run on the public data:
+
+- Full PSP: 24,962 plots / 2.6M live trees; 117 PSP/CMI sites inside TSA 46.
+- Non-PSP GBR North: 105 plots / 4,215 live trees.
+- After AU matching, only 16 managed/young-stand rows remained:
+  4 CMI, 6 NFI, 6 YSM.
+
+The small sample shows the same directional underprediction as TSA 47, but it
+is not large enough to quantify TSA 46 volume/DBH accuracy. The 125 natural and
+52 experimental PSP rows were not used as a managed-TIPSY benchmark; PSP_G is
+unmanaged old growth and PSP_R is experimental, not a clearcut managed stand.
+
+Nemora's non-PSP HPS loader assumes integer plot ids; the GBR files use
+`I/W/E/N/S` codes. A staged code-to-index copy was required. This is a Nemora
+ingest limitation, not a forest-data property.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated.
