@@ -220,9 +220,10 @@ Nemora pilot
 ~~~~~~~~~~~~
 
 Nemora's FAIB HPS pipeline was run on the public ground-plot data. TSA 46 has
-117 PSP/CMI sites and 105 non-PSP GBR North plots, but only **16** managed/young
-rows matched a TIPSY AU after species/SI/age filtering (4 CMI, 6 NFI, 6 YSM).
-The sample is too sparse to quantify volume/DBH accuracy. Natural PSP_G and
+117 PSP/CMI sites and 105 non-PSP GBR North plots, but only **20** managed/young
+rows matched a TIPSY AU after species/SI/age filtering (8 CMI, 6 NFI, 6 YSM).
+The sample is too sparse to quantify volume/DBH accuracy; the CMI rows are old
+(median age 114.9). Natural PSP_G and
 experimental PSP_R plots were not used as a managed-TIPSY benchmark.
 
 Nemora's non-PSP HPS loader assumes integer plot ids; the GBR files use
