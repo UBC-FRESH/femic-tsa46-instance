@@ -160,6 +160,15 @@ The TSR curves are slightly more accurate. The dominant CWH_HW H cell is
 conservative: age 5-15 bias -1.08 m (-31%), age 16-30 bias -2.02 m (-26%).
 That is an accuracy finding, not a reason to tune the AAC.
 
+Site-index attribution
+~~~~~~~~~~~~~~~~~~~~~~
+
+The height bias is largely a site-index input issue. For CWH_HW H, observed
+managed-stand SI is **23.0 m** at ages 5-15 and **26.0 m** at ages 31-50, while
+the checkpoint AU median is **16.3 m**. The checkpoint median covers the full
+THLB; the immature/harvested stands are on better sites. The next test is an
+SI-stratified managed-land curve, validated on held-out stands.
+
 See ``notes/reference/results-tipsy.md`` and
 ``notes/reference/tipsy-validation.md``.
 

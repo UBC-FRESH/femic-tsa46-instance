@@ -45,6 +45,24 @@ The TSR curve is systematically conservative for TSA 46 hemlock, especially at
 young and medium ages. This is a genuine accuracy signal, not a reason to raise
 yield until the AAC fits.
 
+## Site-index attribution
+
+The height bias is largely explained by the site-index input, not by the shape
+of the TIPSY curve. For the dominant CWH_HW H cell:
+
+| Age class | n | Observed SI | Checkpoint SI | Gap | Height bias |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 5-15 | 619 | 23.0 m | 16.3 m | +6.7 m | -1.08 m |
+| 16-30 | 147 | 23.0 m | 16.3 m | +6.7 m | -2.02 m |
+| 31-50 | 45 | 26.0 m | 16.3 m | +9.7 m | -6.40 m |
+| 51-80 | 12 | 25.5 m | 16.3 m | +9.2 m | -4.42 m |
+
+The checkpoint AU median SI includes the full THLB, while the observed
+immature/harvested stands are on better sites. A single AU median therefore
+understates the managed-stand SI. That is a structural issue, not a reason to
+raise the AAC. The next test should be an SI-stratified managed-land curve,
+validated on held-out stands.
+
 ## Caveats
 
 - Height only. Volume, DBH, and mortality are not validated.
