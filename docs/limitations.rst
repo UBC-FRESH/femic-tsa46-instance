@@ -49,6 +49,8 @@ Yield curves
 - Ground-plot validation is reported in :doc:`ground-plot-validation`. TSA 46 has
   20 matched rows from 17 sites; the sample is too small to justify a curve
   change, and production remains on the TSR-consistent lane (ADR 0002).
+- No public management-origin field or independent remeasured managed/young
+  sample is available; the four-strata validation is data-limited (ADR 0003).
 - Independent height checks against RESULTS cover heights are encouraging, but
   volume, DBH, and mortality are not fully validated. RESULTS basal area is
   largely a placeholder, and the public PSP layer is not a remeasured audit in

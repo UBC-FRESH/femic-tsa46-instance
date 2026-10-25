@@ -133,3 +133,8 @@ status and the GitHub issue comments.
   stratified summary script/tables, and record ADR 0002. Production TSR curves are retained;
   TSA 46 does not justify a curve or AAC change. The sidecar and limitations page name the
   sample limit.
+
+- P49: inventory 46 FAIB/CMI/PSP candidates, add
+  `docs/ground-plot-preregistration.rst`, and record ADR 0003. The public data have no
+  management-origin field; the four-strata managed/young test is data-limited (zero eligible
+  sites), so production curves and the AAC remain unchanged.
