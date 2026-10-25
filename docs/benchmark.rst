@@ -212,9 +212,9 @@ area is lower than TSR, but that is a yield consequence, not an accuracy score.
 The accuracy evidence is the holdout height MAE improvement from 1.86 m to
 1.46 m.
 
-Volume/DBH validation is blocked by data: RESULTS basal area is mostly a 1.0
-placeholder, and the public PSP layer is active plot locations only, not
-remeasured tree measurements. Production remains on TSR.
+Volume/DBH validation is stratified in :doc:`ground-plot-validation`. The
+20-row sample is too small and the CMI rows are too old to justify a curve
+change. Production remains on TSR.
 
 Nemora pilot
 ~~~~~~~~~~~~

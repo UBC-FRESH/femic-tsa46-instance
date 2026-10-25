@@ -156,9 +156,23 @@ use `I/W/E/N/S` codes. This was fixed upstream in Nemora PR #5, and direct
 ingest was verified on the 105-plot GBR North set. The staged code-to-index
 copy is no longer required.
 
+## P48 stratified validation
+
+P48 reconciles the 20 matched ground-plot rows and publishes volume, DBH,
+height, and stems by sample type, species, and age class in
+``docs/ground-plot-validation.rst``. The aggregate volume bias is -71.1 m3/ha
+(-32.8%), DBH -11.2 cm (-51.6%), height -2.1 m (-12.9%), and stems
++44.7 sph (+6.8%). Most cells contain one to five observations, and the CMI
+rows have a median age of 114.9 years. The sample is too small to quantify
+managed-stand accuracy.
+
+Decision: ADR 0002 retains the production TSR-consistent BatchTIPSY curves.
+No curve or AAC change follows. The next test needs more managed/young Cw and
+Hw plots in the 16-80 age range.
+
 ## Caveats
 
-- Volume/DBH are only available from the sparse Nemora ground-plot pilot; mortality is not validated.
+- Volume/DBH are reported in the sparse P48 ground-plot table; mortality is not validated.
 - RESULTS cover is an inventory observation, not a remeasured PSP/CMI plot.
 - Single-species filter excludes mixed stands.
 - TIPSY age and observed total age are assumed comparable; regeneration delay

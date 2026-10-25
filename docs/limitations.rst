@@ -46,6 +46,9 @@ Yield curves
 - The `managed_curve_mode: vdyp_transform` profile flag describes the FEMIC
   data-preparation lane. Production treated curves come from the TSR-consistent
   BatchTIPSY lane; the earlier VDYP-transform run is a dated backup.
+- Ground-plot validation is reported in :doc:`ground-plot-validation`. TSA 46 has
+  20 matched rows from 17 sites; the sample is too small to justify a curve
+  change, and production remains on the TSR-consistent lane (ADR 0002).
 - Independent height checks against RESULTS cover heights are encouraging, but
   volume, DBH, and mortality are not fully validated. RESULTS basal area is
   largely a placeholder, and the public PSP layer is not a remeasured audit in

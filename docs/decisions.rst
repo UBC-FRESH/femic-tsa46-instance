@@ -83,3 +83,12 @@ ADR 0001 records the accepted boundary: full TSA, predecessor-derived THLB,
 TSR-consistent BatchTIPSY managed curves, and the AAC as a policy ceiling. It
 also records what the model does not answer. See
 ``notes/adr/0001-model-boundary.md`` and :doc:`limitations`.
+
+9. Ground-plot validation
+-------------------------
+
+The P48 check matches 20 rows from 17 sites (8 CMI, 6 NFI, 6 YSM). Volume, DBH,
+and height are underpredicted in the aggregate, but the sample is too small and
+the CMI rows are too old to justify a correction. Production remains on the
+TSR-consistent BatchTIPSY lane. See ``notes/adr/0002-ground-plot-validation.md``
+and :doc:`ground-plot-validation`.
