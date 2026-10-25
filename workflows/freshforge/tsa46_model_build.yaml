@@ -88,10 +88,28 @@ nodes:
       instance_root: "."
       dataset: runtime/tsa46_full/matrix
 
+  - id: apply_dataset_quality
+    provider: femic.ws4_quality
+    needs:
+      - validate_dataset
+    inputs:
+      dataset: validate_dataset.validated_dataset
+    outputs:
+      quality_report: runtime/tsa46_full/matrix/data_quality.yaml
+    parameters:
+      instance_root: "."
+      dataset: runtime/tsa46_full/matrix
+      sidecar: config/dataset_quality.yaml
+      targets: config/targets.tsa46_full.yaml
+      check: true
+    artifacts:
+      quality_report: runtime/tsa46_full/matrix/data_quality.yaml
+
   - id: build_baseline_schedule
     provider: tsa46.ws4.build_baseline_schedule
     needs:
       - validate_dataset
+      - apply_dataset_quality
     inputs:
       validated_dataset: validate_dataset.validated_dataset
     outputs:
