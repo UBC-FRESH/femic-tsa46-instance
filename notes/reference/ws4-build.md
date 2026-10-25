@@ -58,6 +58,13 @@ The opening-first schedule covers all 21 managed AUs, so
 unused. The earlier VDYP-transform runtime is retained at
 `runtime/tsa46_full_vdyp_20261023` for comparison.
 
+## Accuracy validation
+
+The independent height check is in `notes/reference/tipsy-validation.md`.
+Current TSR: bias -1.50 m, MAE 1.74 m, RMSE 3.01 m against
+observed immature single-species RESULTS cover heights. RESULTS species are
+not more accurate. This is height only; volume/DBH/mortality remain open.
+
 ## Validation
 
 - `ws4 build` and `ws4 validate` pass on the merged matrix.

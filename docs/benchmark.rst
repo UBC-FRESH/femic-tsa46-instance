@@ -103,6 +103,133 @@ The opening-first schedule covers all 21 managed AUs.
 unused. The earlier strict volume-only schedule left three small AUs
 unselected; that result is retained with the dated VDYP-transform runtime.
 
+RESULTS sensitivity
+-------------------
+
+The TSA 48 RESULTS workflow was repeated for TSA 46. The candidate table has
+13 AU/SI rows; five have at least three planting records. The screened input
+uses RESULTS only for those five and the checkpoint AU SI, with the TSA 46
+natural-regeneration density of 4,444 stems/ha.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 40 14 14 18
+
+   * - Scenario
+     - Openings
+     - Blocks
+     - Scheduled area
+   * - Current TSR
+     - 5,587
+     - 8,383
+     - 115,304.5 ha
+   * - RESULTS species, checkpoint SI, 4,444 sph
+     - 6,190
+     - 9,369
+     - 122,730.7 ha
+
+Both meet the ten-decade band with 100% 5-40 ha patches. The RESULTS species mix
+needs **more** area under the same SI and density. That is a yield-consequence,
+not a model-quality score. An earlier 89,835 ha result used harvested-area SI
+and is rejected as biased.
+
+Independent height validation
+-----------------------------
+
+Observed RESULTS cover heights (1,083 immature single-species observations)
+were compared with TIPSY height at age:
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 18 18 18
+
+   * - Curve set
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - -1.50 m
+     - 1.74 m
+     - 3.01 m
+   * - RESULTS species
+     - -1.59 m
+     - 1.79 m
+     - 3.11 m
+
+The TSR curves are slightly more accurate. The dominant CWH_HW H cell is
+conservative: age 5-15 bias -1.08 m (-31%), age 16-30 bias -2.02 m (-26%).
+That is an accuracy finding, not a reason to tune the AAC.
+
+Site-index attribution
+~~~~~~~~~~~~~~~~~~~~~~
+
+The height bias is largely a site-index input issue. For CWH_HW H, observed
+managed-stand SI is **23.0 m** at ages 5-15 and **26.0 m** at ages 31-50, while
+the checkpoint AU median is **16.3 m**. The checkpoint median covers the full
+THLB; the immature/harvested stands are on better sites. The next test is an
+SI-stratified managed-land curve, validated on held-out stands.
+
+Holdout managed-SI test
+~~~~~~~~~~~~~~~~~~~~~~~
+
+A deterministic 80/20 opening split estimated managed-stand SI from training
+observations and tested it on held-out heights, holding species and density at
+the current TSR input.
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 16 16 16 16
+
+   * - Curve set
+     - n
+     - Bias
+     - MAE
+     - RMSE
+   * - Current TSR
+     - 369
+     - -1.61 m
+     - 1.86 m
+     - 3.05 m
+   * - Managed SI
+     - 369
+     - -0.23 m
+     - 1.46 m
+     - 2.31 m
+
+Managed SI clearly improves TSA 46 accuracy, including CWH_HW H at ages 5-15
+(bias -1.01 m to -0.21 m). This supports SI stratification, not an AAC tune.
+
+See ``notes/reference/results-tipsy.md`` and
+``notes/reference/tipsy-validation.md``.
+
+Candidate managed-SI model
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The training-split managed-SI curves were built into a side-by-side model at
+``runtime/tsa46_managed_si``. It meets the ten-decade AAC constraint with 3,631
+openings, 5,354 blocks, and 87,106.7 ha, all patches in the 5-40 ha class. The
+area is lower than TSR, but that is a yield consequence, not an accuracy score.
+The accuracy evidence is the holdout height MAE improvement from 1.86 m to
+1.46 m.
+
+Volume/DBH validation is blocked by data: RESULTS basal area is mostly a 1.0
+placeholder, and the public PSP layer is active plot locations only, not
+remeasured tree measurements. Production remains on TSR.
+
+Nemora pilot
+~~~~~~~~~~~~
+
+Nemora's FAIB HPS pipeline was run on the public ground-plot data. TSA 46 has
+117 PSP/CMI sites and 105 non-PSP GBR North plots, but only **20** managed/young
+rows matched a TIPSY AU after species/SI/age filtering (8 CMI, 6 NFI, 6 YSM).
+The sample is too sparse to quantify volume/DBH accuracy; the CMI rows are old
+(median age 114.9). Natural PSP_G and
+experimental PSP_R plots were not used as a managed-TIPSY benchmark.
+
+Nemora's non-PSP HPS loader initially assumed integer plot ids; the GBR files
+use `I/W/E/N/S` codes. Fixed upstream in Nemora PR #5; direct ingest was
+verified on the GBR North set.
+
 Baseline versus benchmark
 -------------------------
 

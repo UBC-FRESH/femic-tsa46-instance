@@ -74,3 +74,34 @@ status and the GitHub issue comments.
   reproducible lane is `scripts/build_tsr_lane.sh`; the method and caveats are
   in `notes/reference/tipsy-curves.md`.
 
+- Repeated the TSA 48 RESULTS workflow for TSA 46. Fetched 34,952 openings,
+  95,254 forest-cover rows, and 9,963 planting rows. Re-derived the AU map and
+  checkpoint SI. The screened RESULTS species mix needs 122,730.7 ha versus
+  115,304.5 ha for TSR under the same 4,444 sph and checkpoint SI; the earlier
+  89,835 ha result used harvested-area SI and is rejected as biased. Added the
+  first independent height validation: TSR bias -1.50 m, MAE 1.74 m, RMSE
+  3.01 m; RESULTS species bias -1.59 m, MAE 1.79 m, RMSE 3.11 m. TSR is
+  slightly more accurate, and the dominant CWH_HW H curve is conservative.
+  Production remains on TSR. See `notes/reference/results-tipsy.md` and
+  `notes/reference/tipsy-validation.md`. `python scripts/dashboard.py` is
+  green.
+
+- Documented the independent height validation in `docs/benchmark.rst`,
+  `docs/decisions.rst`, `docs/model-build.rst`, `docs/reproduce.rst`, the
+  README, and `notes/reference/`. Added observed SI and the checkpoint SI gap
+  to the validation table. The dominant height bias is largely a site-index
+  input issue: TSA 46 CWH_HW H observed 23.0 m versus checkpoint 16.3 m; TSA 47
+  CWH_HW H observed 28.0 m versus checkpoint 26.3 m. The next test is an
+  SI-stratified managed-land curve validated on held-out stands, not tuning to
+  the AAC.
+
+- Ran a holdout managed-SI experiment. Training 80% of observed openings to estimate managed-stand SI and validated on the held-out 20%, holding species and density at the current TSR input. TSA 46: TSR bias -1.61 m, MAE 1.86 m, RMSE 3.05 m; managed SI bias -0.23 m, MAE 1.46 m, RMSE 2.31 m. TSA 47: TSR bias -1.61 m, MAE 1.86 m, RMSE 3.05 m; managed SI bias -0.23 m, MAE 1.46 m, RMSE 2.31 m. Clear improvement. Managed SI nearly removes the bias and cuts MAE by 0.40 m. TSA 46 needs SI stratification. No production curve or AAC target was changed. See `notes/reference/tipsy-validation.md`.
+
+- Built the TSA 46 managed-SI candidate model at `runtime/tsa46_managed_si`. It meets the ten-decade AAC constraint with 3,631 openings, 5,354 blocks, and 87,106.7 ha. The lower area is a consequence of the higher managed SI, not an accuracy score; the accuracy evidence is the holdout height MAE improvement from 1.86 m to 1.46 m. Volume/DBH validation is blocked because RESULTS basal area is mostly a 1.0 placeholder and the public PSP layer contains active plot locations only, not remeasured measurements. Production remains on TSR. See `notes/reference/tipsy-validation.md`.
+
+- Found the public FAIB ground-plot compilation (PSP/CMI) with plot/tree volume, QMD, stems, age, and top height. TSA 46: 117 sites, 353 visits, 1,763 volume/DBH rows, 603 height rows (98 natural, 19 experimental). Added BTC `stand-structure-basic` support so DBH and stems can be emitted. Volume/DBH validation is now a defined next step, not a data-absence blocker.
+
+- Ran the Nemora FAIB HPS pilot for TSA 46. Full PSP produced 24,962 plots / 2.6M live trees; 117 PSP/CMI sites fall inside TSA 46. Non-PSP GBR North has 105 plots, but only 20 managed/young rows survived species/SI/age matching (8 CMI, 6 NFI, 6 YSM), too sparse to quantify volume/DBH accuracy; the CMI rows are old. Natural PSP_G and experimental PSP_R were not used as a managed-TIPSY benchmark. Nemora's non-PSP loader required a staged code-to-index copy because the GBR plot ids are I/W/E/N/S rather than integers. See `notes/reference/tipsy-validation.md`.
+
+- Upstreamed the non-PSP FAIB plot-id fix to Nemora (PR #5). HPS ingest now preserves string plot codes (`I/W/E/N/S`) instead of forcing integer ids. Direct ingest of the 105-plot GBR North set was verified without the staged code-to-index workaround.
+

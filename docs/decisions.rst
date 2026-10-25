@@ -43,14 +43,31 @@ The opening-first schedule covers all 21 managed AUs, so
 unused. The earlier strict volume-only schedule left three small AUs unselected; that result is retained with the dated VDYP-transform runtime. The benchmark of record is the opening-first run, not the
 volume-only seed.
 
-5. UI geometry scale
+5. Accuracy is not AAC fit
+---------------------------
+
+The AAC band is a policy constraint, not a validation statistic. A curve set
+that needs fewer hectares is not thereby more accurate. The independent height
+check compares TIPSY height at age with observed RESULTS cover heights. The
+current TSR curves are slightly more accurate than the RESULTS species mix
+(TSR bias -1.50 m, MAE 1.74 m, RMSE 3.01 m; RESULTS bias
+-1.59 m, MAE 1.79 m). The height bias is largely a site-index issue: the checkpoint AU median SI
+understates the managed/harvested stand SI (TSA 46 CWH_HW H: 23.0 m observed
+versus 16.3 m checkpoint). A holdout test found that a managed-land SI improves TSA 46 height accuracy
+(MAE 1.86 m to 1.46 m). The sibling TSA 47 test did not improve (1.52 m to
+1.60 m). Volume, DBH, and mortality remain unvalidated because RESULTS basal area is a
+placeholder and public PSP data are active-site locations only, not
+measurements. A side-by-side TSA 46 managed-SI model exists, but production
+remains on TSR. Record: ``notes/reference/tipsy-validation.md``.
+
+6. UI geometry scale
 --------------------
 
 The served map uses a 100 m overview. The full layer is retained. This is an
 interim payload fix; production serving needs viewport and tiled detail. Record:
 ``notes/reference/ws4-build.md``.
 
-6. Independent sibling instance
+7. Independent sibling instance
 -------------------------------
 
 This repository and `Great Bear Rainforest South TSA 47 <https://github.com/UBC-FRESH/femic-tsa47-instance>`_

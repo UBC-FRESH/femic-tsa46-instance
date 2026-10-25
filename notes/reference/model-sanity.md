@@ -31,6 +31,12 @@ AUs and `config/harvest_coverage.allowlist.json` is empty. The earlier strict
 volume-only schedule left small AUs unselected; that result is retained with
 the dated VDYP-transform runtime.
 
+## Accuracy validation
+
+- Current TSR height bias -1.50 m, MAE 1.74 m, RMSE 3.01 m against observed immature single-species RESULTS cover heights.
+- RESULTS species are not more accurate.
+- Volume/DBH/mortality are not yet validated.
+
 ## Status
 
 Pass. The compiled runtime signal is complete, the safe merge preserves area and
