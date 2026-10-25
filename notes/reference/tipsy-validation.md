@@ -167,8 +167,23 @@ rows have a median age of 114.9 years. The sample is too small to quantify
 managed-stand accuracy.
 
 Decision: ADR 0002 retains the production TSR-consistent BatchTIPSY curves.
-No curve or AAC change follows. The next test needs more managed/young Cw and
-Hw plots in the 16-80 age range.
+No curve or AAC change follows. The follow-up pre-registration and data-limit
+decision are in ``docs/ground-plot-preregistration.rst`` (ADR 0003). The next
+test needs more managed/young Cw and Hw plots in the 16-80 age range.
+
+## P49 pre-registration
+
+P49 inventories the public FAIB sample and pre-registers the managed/young test.
+TSA 46 has 205 candidate sites and 460 visits
+(117 PSP, 88 non-PSP), 125 remeasured sites, and
+89 sites with a visit aged 5-80. The public header and visit tables
+have no management-origin field, and the remeasured candidates are natural
+PSP_G, experimental PSP_R, or origin-unknown NFI. No candidate meets the
+four-strata managed/young inclusion rule.
+
+Decision: ADR 0003 records the data limit. Production remains on the
+TSR-consistent BatchTIPSY lane; no curve or AAC change. The pre-registered
+protocol is in ``docs/ground-plot-preregistration.rst``.
 
 ## Caveats
 

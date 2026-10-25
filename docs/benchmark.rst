@@ -215,6 +215,8 @@ The accuracy evidence is the holdout height MAE improvement from 1.86 m to
 Volume/DBH validation is stratified in :doc:`ground-plot-validation`. The
 20-row sample is too small and the CMI rows are too old to justify a curve
 change. Production remains on TSR.
+The managed/young pre-registration is data-limited; see
+:doc:`ground-plot-preregistration`.
 
 Nemora pilot
 ~~~~~~~~~~~~
