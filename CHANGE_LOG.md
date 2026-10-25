@@ -102,3 +102,6 @@ status and the GitHub issue comments.
 - Found the public FAIB ground-plot compilation (PSP/CMI) with plot/tree volume, QMD, stems, age, and top height. TSA 46: 117 sites, 353 visits, 1,763 volume/DBH rows, 603 height rows (98 natural, 19 experimental). Added BTC `stand-structure-basic` support so DBH and stems can be emitted. Volume/DBH validation is now a defined next step, not a data-absence blocker.
 
 - Ran the Nemora FAIB HPS pilot for TSA 46. Full PSP produced 24,962 plots / 2.6M live trees; 117 PSP/CMI sites fall inside TSA 46. Non-PSP GBR North has 105 plots, but only 20 managed/young rows survived species/SI/age matching (8 CMI, 6 NFI, 6 YSM), too sparse to quantify volume/DBH accuracy; the CMI rows are old. Natural PSP_G and experimental PSP_R were not used as a managed-TIPSY benchmark. Nemora's non-PSP loader required a staged code-to-index copy because the GBR plot ids are I/W/E/N/S rather than integers. See `notes/reference/tipsy-validation.md`.
+
+- Upstreamed the non-PSP FAIB plot-id fix to Nemora (PR #5). HPS ingest now preserves string plot codes (`I/W/E/N/S`) instead of forcing integer ids. Direct ingest of the 105-plot GBR North set was verified without the staged code-to-index workaround.
+

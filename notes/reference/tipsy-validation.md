@@ -151,9 +151,10 @@ natural and 52 experimental PSP rows were not used as a managed-TIPSY
 benchmark; PSP_G is unmanaged old growth and PSP_R is experimental, not a
 clearcut managed stand.
 
-Nemora's non-PSP HPS loader assumes integer plot ids; the GBR files use
-`I/W/E/N/S` codes. A staged code-to-index copy was required. This is a Nemora
-ingest limitation, not a forest-data property.
+Nemora's non-PSP HPS loader initially assumed integer plot ids; the GBR files
+use `I/W/E/N/S` codes. This was fixed upstream in Nemora PR #5, and direct
+ingest was verified on the 105-plot GBR North set. The staged code-to-index
+copy is no longer required.
 
 ## Caveats
 

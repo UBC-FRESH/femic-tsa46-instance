@@ -226,8 +226,9 @@ The sample is too sparse to quantify volume/DBH accuracy; the CMI rows are old
 (median age 114.9). Natural PSP_G and
 experimental PSP_R plots were not used as a managed-TIPSY benchmark.
 
-Nemora's non-PSP HPS loader assumes integer plot ids; the GBR files use
-`I/W/E/N/S` codes. A staged code-to-index copy was required.
+Nemora's non-PSP HPS loader initially assumed integer plot ids; the GBR files
+use `I/W/E/N/S` codes. Fixed upstream in Nemora PR #5; direct ingest was
+verified on the GBR North set.
 
 Baseline versus benchmark
 -------------------------
