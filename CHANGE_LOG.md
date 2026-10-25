@@ -105,3 +105,6 @@ status and the GitHub issue comments.
 
 - Upstreamed the non-PSP FAIB plot-id fix to Nemora (PR #5). HPS ingest now preserves string plot codes (`I/W/E/N/S`) instead of forcing integer ids. Direct ingest of the 105-plot GBR North set was verified without the staged code-to-index workaround.
 
+- P35: track `config/dataset_quality.yaml`, copy it beside the matrix after `ws4 build`,
+  and gate the full model build with `ws4 quality --check`. The docs link the model
+  limitations page and the VDYP/THLB caveats.
