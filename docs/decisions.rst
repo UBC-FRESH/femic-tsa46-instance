@@ -87,7 +87,8 @@ also records what the model does not answer. See
 9. Ground-plot validation
 -------------------------
 
-The P48 check matches 20 rows from 17 sites (8 CMI, 6 NFI, 6 YSM). Volume, DBH,
+The earlier ground-plot check matches 20 rows from 17 sites (8 CMI, 6 NFI,
+6 YSM). Volume, DBH,
 and height are underpredicted in the aggregate, but the sample is too small and
 the CMI rows are too old to justify a correction. Production remains on the
 TSR-consistent BatchTIPSY lane. See ``notes/adr/0002-ground-plot-validation.md``
@@ -97,7 +98,7 @@ and :doc:`ground-plot-validation`.
 ---------------------------------------------
 
 The public FAIB data have no management-origin field. The remeasured candidates
-are natural PSP_G, experimental PSP_R, or origin-unknown NFI, and the P48 rows
+are natural PSP_G, experimental PSP_R, or origin-unknown NFI, and those rows
 are exploratory. The pre-registered four-strata test is therefore data-limited:
 zero eligible sites. Production remains on the TSR-consistent BatchTIPSY lane.
 See ``notes/adr/0003-ground-plot-preregistration.md`` and

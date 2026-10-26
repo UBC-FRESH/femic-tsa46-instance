@@ -24,7 +24,7 @@ Boundary
    * - CRS
      - EPSG:3005
    * - Gross area
-     - 8,697,740.3453 ha
+     - 8,697.7 thousand ha
    * - Bounds
      - 634372.03, 684898.80, 1029161.54, 1222796.50
 
@@ -32,7 +32,7 @@ The layer also carries supply-block rows and retired historical versions. The
 selection above keeps the single current dissolved TSA feature. Supply blocks
 are components, not the build boundary.
 
-TSA 46 is the union of the former North Coast and Mid Coast boundaries; the symmetric difference is 5,268.5 ha (0.06%).
+TSA 46 is the union of the former North Coast and Mid Coast boundaries; the symmetric difference is 5,269 ha (0.06%).
 
 Legal framework
 ---------------

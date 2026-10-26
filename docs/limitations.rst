@@ -13,11 +13,11 @@ operational plan, a legal determination, or an investment case.
 Boundary and land base
 ----------------------
 
-- The model uses the full current dissolved TSA 46 boundary (8,697,740.35 ha
+- The model uses the full current dissolved TSA 46 boundary (8,697.7 thousand ha
   gross), not a district, tenure, or watershed clip.
 - The managed land base is calibrated to 268,970 ha from the former North
-  Coast TSA (145,808 ha current THLB) and Mid Coast TSA (123,162 ha current
-  effective THLB). That is a **predecessor-value derivation**, not a reviewed
+  Coast TSA (145.8 thousand ha current THLB) and Mid Coast TSA (123.2 thousand ha
+  current effective THLB). That is a **predecessor-value derivation**, not a reviewed
   GBR netdown.
 - The calibration forces the managed area to the target. It does not discover a
   new operability, retention, or conservation land base.

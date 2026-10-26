@@ -40,7 +40,7 @@ real files, not annex pointer symlinks.
      --tsa-number 46 \
      --out data/source/aoi/tsa46_full.gpkg
 
-Expected: one feature, EPSG:3005, 8,697,740.35 ha gross.
+Expected: one feature, EPSG:3005, 8,697.7 thousand ha gross.
 
 3. Run the FEMIC data-prep lane
 -------------------------------

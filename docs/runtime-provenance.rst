@@ -2,8 +2,8 @@ Runtime provenance refresh
 ==========================
 
 The current production matrix was refreshed on 2026-10-25 so its
-`data_quality.yaml` sidecar matches the provenance published in P47-P49. The
-quality gate passes. This page records the matrix path, hashes, and gate
+`data_quality.yaml` sidecar matches the provenance published in the current
+provenance records. The quality gate passes. This page records the matrix path, hashes, and gate
 result.
 
 Scope
@@ -23,7 +23,7 @@ TSA 46
 - Sidecar: ``runtime/tsa46_full/matrix/data_quality.yaml``
 - Sidecar SHA-256: ``50a48f25c515d0a17f231574ba79b9235af5067bd51e61fcda42baf58d30a13e``
 - Manifest SHA-256: ``8f0c11de84c32c02e6ff9254cb2d6765cb78beeaa456eb33f546ebbe183d4487``
-- Quality report: ``runtime/tsa46_full/quality/p50/quality.json``
+- Quality report: under ``runtime/tsa46_full/quality/``
 - Quality report SHA-256: ``fb704a305879bdf04aa0c734be5fe91c937a909dff28d283f94d8a1cf13b635c``
 - Status: **ok**; provenance supplied; 12 tables; no warnings.
 
