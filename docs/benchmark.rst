@@ -46,38 +46,38 @@ Result
      - Realized volume (m3)
      - Band status
    * - 1
-     - 8,030,924.8
+     - 8,030,925
      - met
    * - 2
-     - 8,030,987.3
+     - 8,030,987
      - met
    * - 3
-     - 8,030,958.2
+     - 8,030,958
      - met
    * - 4
-     - 8,030,983.1
+     - 8,030,983
      - met
    * - 5
-     - 8,030,984.6
+     - 8,030,985
      - met
    * - 6
-     - 8,030,830.4
+     - 8,030,830
      - met
    * - 7
-     - 8,030,975.2
+     - 8,030,975
      - met
    * - 8
-     - 8,030,481.2
+     - 8,030,481
      - met
    * - 9
-     - 8,030,625.8
+     - 8,030,626
      - met
    * - 10
-     - 8,030,816.6
+     - 8,030,817
      - met
 
 All ten decades are inside the band. The opening-first schedule schedules
-5,587 openings on 8,383 blocks, covering 115,304.5 ha.
+5,587 openings on 8,383 blocks, covering 115.3 thousand ha.
 
 Opening-first policy
 --------------------
@@ -88,7 +88,7 @@ uses ``product.Treated.managed.CC`` as the treated-area criterion.
 
 - Topology edges: 244,270
 - Opening range: 5.3-40.0 ha
-- Patch area: 172,207.3 ha
+- Patch area: 172.2 thousand ha
 - Patch classes: **100% in the 5-40 ha class at every year**
 
 The 0-1, 1-5, 40-50 and >50 ha classes are all 0.0%. The opening-first
@@ -122,11 +122,11 @@ natural-regeneration density of 4,444 stems/ha.
    * - Current TSR
      - 5,587
      - 8,383
-     - 115,304.5 ha
+     - 115.3 thousand ha
    * - RESULTS species, checkpoint SI, 4,444 sph
      - 6,190
      - 9,369
-     - 122,730.7 ha
+     - 122.7 thousand ha
 
 Both meet the ten-decade band with 100% 5-40 ha patches. The RESULTS species mix
 needs **more** area under the same SI and density. That is a yield-consequence,
@@ -207,7 +207,7 @@ Candidate managed-SI model
 
 The training-split managed-SI curves were built into a side-by-side model at
 ``runtime/tsa46_managed_si``. It meets the ten-decade AAC constraint with 3,631
-openings, 5,354 blocks, and 87,106.7 ha, all patches in the 5-40 ha class. The
+openings, 5,354 blocks, and 87.1 thousand ha, all patches in the 5-40 ha class. The
 area is lower than TSR, but that is a yield consequence, not an accuracy score.
 The accuracy evidence is the holdout height MAE improvement from 1.86 m to
 1.46 m.

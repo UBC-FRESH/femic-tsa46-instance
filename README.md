@@ -6,6 +6,8 @@ data; ws4 compiles the model, runs the benchmark, and serves the web UI. This
 repository is tracked in `femic` as the `external/femic-tsa46-instance`
 submodule.
 
+Terms are defined in the [glossary](https://ubc-fresh.github.io/femic-tsa46-instance/glossary.html).
+
 ## Runtime lane
 
 **ws4 is the primary runtime.** The Patchworks XML/fragments package is an
@@ -26,7 +28,7 @@ inventory, FEMIC export lane, and GBR legal framework, but they are
 ## Status
 
 The calibrated model is built and the ten-decade benchmark meets all ten
-targets at 803,000 m3/yr. A safe sliver merge removed 2,271 blocks (1,367.76 ha)
+targets at 803,000 m3/yr. A safe sliver merge removed 2,271 blocks (1,368 ha)
 without changing net area or managed area. The FEMIC run, ws4 matrix, benchmark,
 and UI geometry are recorded in `notes/reference/ws4-build.md`. The managed curves are TSR-consistent BatchTIPSY 4.7 curves, not a VDYP
 transform. The opening-first policy holds 100% of patch area in the 5-40 ha
@@ -36,15 +38,15 @@ class and all ten AAC decades met; see `notes/reference/opening-policy.md` and
 ## AOI
 
 The tracked boundary is `data/source/aoi/tsa46_full.gpkg` (EPSG:3005, layer
-`tsa46_full`, **8,697,740.35 ha gross**). It is the single current dissolved
+`tsa46_full`, **8,697.7 thousand ha gross**). It is the single current dissolved
 FADM TSA 46 feature: no supply-block code and no retirement date. The gross area
 includes ocean and foreshore; the VRI block area is the forested subset.
 
 ## Model
 
-The calibrated model has **169,554 blocks**, **2,375,677.18 ha** of block
-area, and **268,970.00 ha** of managed area. The calibration factor is
-`1.1407167870336385`; 9,374 rows saturate.
+The calibrated model has **169,554 blocks**, **2,375.7 thousand ha** of block
+area, and **269.0 thousand ha** of managed area. The calibration factor is
+`1.14`; 9,374 rows saturate.
 
 The production model is built by `scripts/build_tsr_lane.sh`:
 
@@ -82,7 +84,7 @@ the browser.
 | Path | Purpose |
 | --- | --- |
 | `AGENTS.md` | Agent operating contract and project-specific rules |
-| `ROADMAP.md` | Phases, tasks, and GitHub issue map |
+| `ROADMAP.md` | Project status and issue map |
 | `CHANGE_LOG.md` | Dated narrative of changes |
 | `config/` | FEMIC run profile, TSA targets, TIPSY scaffold, Patchworks export config |
 | `data/source/aoi/` | Tracked public AOI boundary |

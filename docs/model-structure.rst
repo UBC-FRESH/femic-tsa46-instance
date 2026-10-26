@@ -55,11 +55,11 @@ Blocks and area
    * - Fragment rows
      - 188,037
    * - Block area
-     - 2,375,677.18 ha
+     - 2,375.7 thousand ha
    * - Gross AOI area
-     - 8,697,740.35 ha
+     - 8,697.7 thousand ha
    * - Managed area
-     - 268,970 ha
+     - 269.0 thousand ha
    * - Managed share of block area
      - 11.3%
 
@@ -88,28 +88,28 @@ The initial ``feature.Area.og1.*`` accounts give the compiled species mix:
    :widths: 18 22 12
 
    * - Species
-     - Initial area (ha)
+     - Initial area (thousand ha)
      - Share
    * - CWH_CW
-     - 579,570.3
+     - 579.6
      - 35.3%
    * - CWH_HW
-     - 489,493.4
+     - 489.5
      - 29.8%
    * - CWH_H
-     - 244,714.7
+     - 244.7
      - 14.9%
    * - MH_H
-     - 145,864.2
+     - 145.9
      - 8.9%
    * - CWH_YC
-     - 110,608.7
+     - 110.6
      - 6.7%
    * - CWH_BA
-     - 41,870.5
+     - 41.9
      - 2.5%
    * - CWH_FDC
-     - 31,215.5
+     - 31.2
      - 1.9%
 
 Every species above has a nonzero area account and a resolved curve. The
